@@ -1,0 +1,32 @@
+/* ./my-app/src/tailwind.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .nav-btn {
+      @apply block py-2 px-4 my-2 rounded-sm transition duration-200 hover:bg-white hover:text-darkBlue-100 ;
+    }
+  
+    .active {
+        @apply text-darkBlue-100 bg-white md:w-64 shadow-sm;
+    }
+  
+    .active_tab {
+      @apply text-pinkRose-200;
+    }
+  
+    .active_col {
+      @apply lg:ml-8 xl:ml-12 z-10 relative;
+    }
+  
+    .active_col_msg {
+      @apply ml-6 z-10 relative;
+    }
+  }
+  
+  @layer utilities {
+    .translate-hide {
+      --tw-translate-x: -200rem;
+    }
+  }
