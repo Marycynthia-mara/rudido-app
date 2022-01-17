@@ -1,58 +1,22 @@
 // import React, {useState} from 'react';
-import React from 'react';
+import React, { useEffect } from 'react';
 // import {Link, useHistory} from 'react-router-dom';
 import {Link} from 'react-router-dom';
 // import axios from 'axios';
 // import MessageBox from '../components/MessageBox';
+import { useDispatch, useSelector } from 'react-redux';
+import { loginUser } from '../actions';
 
 
 export default function RegisterPage () {
 
+    const dispatch = useDispatch();
+    const userDetails = useSelector((state) => state.userDetails);
+    const {status} = userDetails;
 
-    // const history = useHistory();
-    // const [studentInput, setStudent] = useState({
-    //     name: '',
-    //     course: '',
-    //     email: '',
-    //     phone: '',
-    //     error_list: [],
-    // });
-
-    // const handleInput = (e) => {
-    //     e.persist();
-    //     setStudent({...studentInput, [e.target.name]: e.target.value })
-    // }
-
-    // const saveStudent = (e) => {
-    //     e.preventDefault();
-        
-    //     const data = {
-    //         name:studentInput.name,
-    //         course:studentInput.course,
-    //         email:studentInput.email,
-    //         phone:studentInput.phone,
-    //     }
-
-    //     axios.post(`/api/add-student`, data).then(res => {
-
-    //         if(res.data.status === 200)
-    //         {
-    //             swal("Success!",res.data.message,"success");
-    //             setStudent({
-    //                 name: '',
-    //                 course: '',
-    //                 email: '',
-    //                 phone: '',
-    //                 error_list: [],
-    //             });
-    //             history.push('/students');
-    //         }
-    //         else if(res.data.status === 422)
-    //         {
-    //             setStudent({...studentInput, error_list: res.data.validate_err });
-    //         }
-    //     });
-    // }
+    useEffect(() => {
+        dispatch(loginUser());
+    }, []);
 
 
     return (
@@ -144,7 +108,7 @@ export default function RegisterPage () {
                         
                         <p className="text-gray-600 text-center pt-2"> Don't have google or facebook account Signup 
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 animate-bounce inline" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                               </svg>
                         </p>
 
