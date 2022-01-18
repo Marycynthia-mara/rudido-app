@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 // import {Link, useHistory} from 'react-router-dom';
 import { Link } from 'react-router-dom';
@@ -215,6 +216,7 @@ export default function RegisterPage({ history }) {
                     }}
                     autocomplete="name"
                   />
+
                 </div>
 
                 <div className="flex flex-wrap">
@@ -316,6 +318,7 @@ export default function RegisterPage({ history }) {
                       Login{' '}
                     </Link>
                   </p>
+
                 </div>
               </form>
             </div>

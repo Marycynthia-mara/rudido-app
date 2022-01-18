@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 
+
 function Header(props) {
   const current = new Date();
   const month = current.toLocaleString('en-us', { month: 'long' });
@@ -72,6 +73,7 @@ function Header(props) {
 
                 <span className="inline-block p-2">{date}</span>
               </p>
+
             </div>
           ) : (
             ''

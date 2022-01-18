@@ -59,7 +59,7 @@ export default function PlannerPage () {
                                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pinkRose-100 opacity-75 text-white"></span>
                             
                                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 absolute top-0.5 left-0.5 inline-flex" viewBox="0 0 20 20" fill="currentColor">
-                                                    <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
+                                                    <path fillRule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clipRule="evenodd" />
                                                 </svg>
                                             </span>
                                         </p>
@@ -114,7 +114,7 @@ export default function PlannerPage () {
                                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pinkRose-100 opacity-75 text-white"></span>
                             
                                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 absolute top-0.5 left-0.5 inline-flex" viewBox="0 0 20 20" fill="currentColor">
-                                                    <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd" />
+                                                    <path fillRule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clipRule="evenodd" />
                                                 </svg>
                                             </span>
                                         </p>

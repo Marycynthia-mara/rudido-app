@@ -513,6 +513,7 @@ export default function MarketplacePage() {
                                   />
                                 </svg>
                               </div>
+
                             </div>
                           </div>
                         </div>

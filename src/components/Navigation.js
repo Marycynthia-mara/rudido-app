@@ -366,6 +366,7 @@ function Navigation() {
               <p className="leading-4 text-darkPurple-200 truncate">
                 Latest notification text goes here.
               </p>
+
             </div>
           </NavLink>
         </nav>

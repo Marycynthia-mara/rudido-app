@@ -2,6 +2,7 @@ import React from 'react';
 import Navigation from '../components/Navigation';
 import Header from '../components/Header';
 
+
 export default function WorkspaceCreatePage() {
   return (
     <>
@@ -63,6 +64,7 @@ export default function WorkspaceCreatePage() {
                     Portfolio
                   </a>
                 </div>
+
 
                 <div className=" hidden lg:block lg:float-left w:full lg:w-2/12 min-h-12 py-2">
                   <div className="w-full min-h-12 shadow-all rounded-md px-2 py-2 text-xxs text-darkBlue-100 mb-6">
@@ -142,6 +144,7 @@ export default function WorkspaceCreatePage() {
                         Type : <span className="font-normal">Text & Video</span>
                       </p>
                     </div>
+
 
                     <div className="w-full min-h-36 my-2">
                       <div className="gap-2 mb-2">

@@ -94,6 +94,7 @@ export default function MessagePage() {
                       />
                     </div>
 
+
                     <div className="w-10/12 float-left text-left px-2 mb-4">
                       <p className="text-sm mb-2">Jane Okonkwo</p>
                       <p className="w-36 bg-darkBlue-100 text-white py-1 px-2 rounded-sm shadow-md font-normal text-xs">

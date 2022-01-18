@@ -3,6 +3,7 @@ import Navigation from '../components/Navigation';
 import Header from '../components/Header';
 import { Link } from 'react-router-dom';
 
+
 export default function LibraryPage() {
   return (
     <>
@@ -461,6 +462,7 @@ export default function LibraryPage() {
                                                                     </span> */}
                                 </p>
                               </div>
+
                             </div>
                           </div>
                         </div>

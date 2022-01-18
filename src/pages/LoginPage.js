@@ -211,6 +211,7 @@ export default function LoginPage({ history }) {
                   <p className="text-red-500 text-xs italic mt-4"></p>
                 </div>
 
+
                 <div className="flex items-center">
                   <label
                     className="inline-flex items-center text-sm text-gray-700"
@@ -263,6 +264,7 @@ export default function LoginPage({ history }) {
                       Sign Up
                     </Link>
                   </p>
+
                 </div>
               </form>
             </div>
