@@ -191,7 +191,7 @@ export default function WorkspaceCreate() {
 
               <div
                 className="w-full lg:w-9/12 float-right lg:pl-4 min-h-32"
-                Name
+                
               >
                 <div className="hidden lg:flex gap-1 md:gap-2 lg:gap-4 xl:gap-6 w-full mb-4 text-darkBlue-100 text-center">
                   <div className="pt-2 pr-2 lg:pr-4 flex-1 float-left md:w-full">

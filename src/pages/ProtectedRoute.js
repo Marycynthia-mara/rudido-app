@@ -7,6 +7,8 @@ import { isEmpty } from '../utils';
 
 
 export default function ProtectedRoute ({component : Component , ...restOfProps}) {
+    
+    console.log({...restOfProps})
 
     const userData = useSelector((state) => state.user);
     const isAuthenticated =  !isEmpty(userData.isSignedIn) ? true : false ;

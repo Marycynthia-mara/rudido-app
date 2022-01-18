@@ -25,15 +25,15 @@ function App() {
     <Router history={history}>
       <div id="app">
           <Switch>
-            <Route path="/login" component={LoginPage} />
-            <Route path="/register" component={RegisterPage} />
+            <Route path="/login" component={LoginPage} exact/>
+            <Route path="/register" component={RegisterPage} exact/>
             <ProtectedRoute path="/dashboard" component={HomePage} exact />
-            <ProtectedRoute path="/planner" component={PlannerPage} />
+            <ProtectedRoute path="/planner" component={PlannerPage} exact/>
             <ProtectedRoute path="/workspace" component={WorkspacePage} exact/>
-            <ProtectedRoute path="/workspace/create" component={WorkspaceCreatePage}  />
-            <ProtectedRoute path="/marketplace" component={MarketplacePage} />
-            <ProtectedRoute path="/library" component={LibraryPage} />
-            <ProtectedRoute path="/message" component={MessagePage} />
+            <ProtectedRoute path="/workspace/create" component={WorkspaceCreatePage}  exact/>
+            <ProtectedRoute path="/marketplace" component={MarketplacePage} exact/>
+            <ProtectedRoute path="/library" component={LibraryPage} exact/>
+            <ProtectedRoute path="/message" component={MessagePage} exact/>
 
             <Route path="/" component={LoginPage} />
 
