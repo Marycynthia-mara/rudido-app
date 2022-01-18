@@ -1,6 +1,7 @@
 import React from "react";
+import { createBrowserHistory } from 'history';
 import {
-  BrowserRouter as Router,
+   Router,
   Switch,
   Route
 } from "react-router-dom";
@@ -13,24 +14,31 @@ import WorkspaceCreatePage from "./pages/WorkspaceCreatePage";
 import MarketplacePage from "./pages/MarketplacePage";
 import LibraryPage from "./pages/LibraryPage";
 import MessagePage from "./pages/MessagePage";
+import ProtectedRoute from "./pages/ProtectedRoute";
+import UnProtectedRoute from "./pages/UnProtectedRoute";
 
+
+
+const history = createBrowserHistory();
 function App() {
   return (
-    <Router>
+    <Router history={history}>
       <div id="app">
           <Switch>
-            <Route path="/" component={HomePage} exact />
             <Route path="/login" component={LoginPage} />
             <Route path="/register" component={RegisterPage} />
-            <Route path="/planner" component={PlannerPage} />
-            <Route path="/workspace" component={WorkspacePage} exact/>
-            <Route path="/workspace/create" component={WorkspaceCreatePage}  />
-            <Route path="/marketplace" component={MarketplacePage} />
-            <Route path="/library" component={LibraryPage} />
-            <Route path="/message" component={MessagePage} />
+            <ProtectedRoute path="/dashboard" component={HomePage} exact />
+            <ProtectedRoute path="/planner" component={PlannerPage} />
+            <ProtectedRoute path="/workspace" component={WorkspacePage} exact/>
+            <ProtectedRoute path="/workspace/create" component={WorkspaceCreatePage}  />
+            <ProtectedRoute path="/marketplace" component={MarketplacePage} />
+            <ProtectedRoute path="/library" component={LibraryPage} />
+            <ProtectedRoute path="/message" component={MessagePage} />
+
+            <Route path="/" component={LoginPage} />
+
           </Switch>
       </div>
-
     </Router>
   );
 }
