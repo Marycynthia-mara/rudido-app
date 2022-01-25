@@ -24,7 +24,7 @@ export const loginUser = (obj, history) => {
         const userObj = { info: data.data.user, token: data.data.token };
         localStorage.setItem("userData", JSON.stringify(userObj));
         dispatch({ type: USER_LOGIN_SUCCESS, payload: userObj });
-        history.push("/dashboard");
+        history.push("/");
       } else {
         dispatch({ type: USER_LOGIN_FAIL, payload: data.message });
       }
