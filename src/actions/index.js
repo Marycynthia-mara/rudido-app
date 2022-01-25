@@ -11,8 +11,9 @@ import {
   USER_REGISTER_SUCCESS,
   DOMAIN,
   USER_REGISTER_FAIL,
-} from '../constants';
-import axios from 'axios';
+} from "../constants";
+import axios from "axios";
+import { isEmpty } from "../utils";
 
 export const loginUser = (obj, history) => {
   return async (dispatch) => {
@@ -21,9 +22,9 @@ export const loginUser = (obj, history) => {
       const { data } = await axios.post(`${DOMAIN}/api/login`, { ...obj });
       if (data.status) {
         const userObj = { info: data.data.user, token: data.data.token };
-        localStorage.setItem('userData', JSON.stringify(userObj));
+        localStorage.setItem("userData", JSON.stringify(userObj));
         dispatch({ type: USER_LOGIN_SUCCESS, payload: userObj });
-        history.push('/planner');
+        history.push("/dashboard");
       } else {
         dispatch({ type: USER_LOGIN_FAIL, payload: data.message });
       }
@@ -39,19 +40,33 @@ export const registerUser = (obj, history) => {
     try {
       const { data } = await axios.post(`${DOMAIN}/api/register`, {
         ...obj,
-        firstname: '',
-        lastname: '',
+        firstname: "",
+        lastname: "",
         type: 0,
       });
       console.log(data);
       if (data.status) {
         dispatch({ type: USER_REGISTER_SUCCESS, payload: data.message });
-        history.push('/login');
+        history.push("/login");
       } else {
         dispatch({ type: USER_REGISTER_FAIL, payload: data.message });
       }
     } catch (e) {
       dispatch({ type: USER_REGISTER_FAIL, payload: e.message });
+    }
+  };
+};
+
+export const logoutUser = (history) => {
+  return (dispatch) => {
+    if (!isEmpty(localStorage.getItem("userData"))) {
+      dispatch({
+        type: USER_LOGOUT_SUCCESS,
+      });
+      localStorage.removeItem("userData");
+      history.push("/login");
+    } else {
+      history.push("/login");
     }
   };
 };

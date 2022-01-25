@@ -1,13 +1,25 @@
-import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import React from "react";
+import { useDispatch } from "react-redux";
+import { NavLink, Link } from "react-router-dom";
+import { logoutUser } from "../actions";
 
-function Navigation() {
+function Navigation({ history }, props) {
+  const dispatch = useDispatch();
+
+  const onLogoutHandler = (e) => {
+    e.preventDefault();
+
+    dispatch(logoutUser(history));
+  };
+
+  const { toggleHandler } = props;
+
   return (
     <>
       {/* <!-- mobile menu bar --> */}
       <div className="text-white flex justify-between px-8 pt-4 md:hidden">
         {/* <!-- logo --> */}
-        <Link exact to="/" className={`block p-4 content-center`}>
+        <Link to="/dashboard" className={`block p-4 content-center`}>
           <span className="relative inline-flex rounded-full h-6 w-6 bg-pinkRose-200 stroke-white">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pinkRose-100 opacity-75"></span>
 
@@ -29,7 +41,12 @@ function Navigation() {
         </Link>
 
         {/* <!-- mobile menu button --> */}
-        <button className="mobile-menu-button p-4 focus:outline-none text-darkBlue-100 pt-2">
+        <button
+          onClick={() => {
+            toggleHandler();
+          }}
+          className="mobile-menu-button p-4 focus:outline-none text-darkBlue-100 pt-2"
+        >
           <svg
             className="h-7 w-7"
             xmlns="http://www.w3.org/2000/svg"
@@ -48,11 +65,12 @@ function Navigation() {
       </div>
 
       {/* <!-- sidebar --> */}
-      <div className="sidebar z-20 rounded-tl-30 rounded-bl-30 bg-darkBlue-100 text-blue-100 w-64 py-7 px-6 md:pt-12 overflow-y-scroll md:overflow-visible shadow-md md:rounded-30 absolute inset-y-0 md:ml-3 md:mb-14 md:mt-28 transform translate-hide md:relative md:translate-x-0 transition duration-200 ease-in-out">
+      <div className="sidebar z-20 rounded-tl-30 rounded-bl-30 bg-darkBlue-100 text-blue-100 w-64 py-7 px-6 md:pt-12 overflow-y-scroll md:overflow-visible shadow-md md:rounded-30 absolute inset-y-0 md:ml-3 md:mb-14 md:mt-28 transform translate-hide md:relative md:translate-x-0 transition duration-200 ease-in-out"
+      
+      >
         {/* <!-- logo --> */}
         <Link
-          exact
-          to="/"
+          to="/dashboard"
           className={`block w-16 h-16 relative left-[-3%] md:w-28 md:h-28 md:absolute md:top-[-11%] md:left-10`}
         >
           <img src="/images/rudido-logo.png" alt="Logo" />
@@ -60,7 +78,11 @@ function Navigation() {
 
         {/* <!-- nav --> */}
         <nav>
-          <NavLink exact to="/" activeClassName="active" className={`nav-btn`}>
+          <NavLink
+            to="/dashboard"
+            activeClassName="active"
+            className={`nav-btn`}
+          >
             <svg
               className="h-6 w-6 inline fill-current"
               viewBox="0 0 24 24"
@@ -317,7 +339,7 @@ function Navigation() {
             <span className="inline-block pl-4">Settings</span>
           </NavLink>
 
-          <NavLink to="/logout" className={`nav-btn`}>
+          <NavLink to="/logout" className={`nav-btn`} onClick={onLogoutHandler}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6 inline"
@@ -366,7 +388,6 @@ function Navigation() {
               <p className="leading-4 text-darkPurple-200 truncate">
                 Latest notification text goes here.
               </p>
-
             </div>
           </NavLink>
         </nav>

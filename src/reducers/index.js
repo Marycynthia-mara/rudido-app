@@ -6,27 +6,45 @@ import {
   USER_LOGOUT_SUCCESS,
   USER_REGISTER_REQUEST,
   USER_REGISTER_SUCCESS,
-  USER_REGISTER_FAIL
-} from '../constants';
+  USER_REGISTER_FAIL,
+} from "../constants";
 
 export const userAccountReducer = (state = {}, action) => {
   switch (action.type) {
     case USER_REGISTER_REQUEST:
-      return { loading: true, type: 'register', message: 'Processing...' };
+      return { loading: true, type: "register", message: "Processing..." };
     case USER_REGISTER_SUCCESS:
-      return { loading: false, type: 'register', message:action.payload };
+      return { loading: false, type: "register", message: action.payload };
     case USER_REGISTER_FAIL:
-      return { loading: false, type: 'register', message: action.payload , error : true };
+      return {
+        loading: false,
+        type: "register",
+        message: action.payload,
+        error: true,
+      };
 
-      
-      case USER_LOGIN_REQUEST:
-        return { loading: true, type: 'login', message: 'Processing...' };
-      case USER_LOGIN_SUCCESS:
-        return { loading: false, type: 'login', message:"", ...action.payload , isSignedIn : true };
-      case USER_LOGIN_FAIL:
-        return { loading: false, type: 'login', message: action.payload , error : true };
+    case USER_LOGIN_REQUEST:
+      return { loading: true, type: "login", message: "Processing..." };
+    case USER_LOGIN_SUCCESS:
+      return {
+        loading: false,
+        type: "login",
+        message: "Success",
+        ...action.payload,
+        isSignedIn: true,
+      };
+    case USER_LOGIN_FAIL:
+      return {
+        loading: false,
+        type: "login",
+        message: action.payload,
+        error: true,
+      };
     case USER_LOGOUT_SUCCESS:
-      return {};
+      return {
+        loading: false,
+        type: "logout",
+      };
     default:
       return state;
   }

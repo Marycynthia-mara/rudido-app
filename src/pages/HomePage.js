@@ -1,20 +1,19 @@
-import React from 'react';
+import React from "react";
 
-import Navigation from '../components/Navigation';
-import Header from '../components/Header';
-import { Link } from 'react-router-dom';
+import Navigation from "../components/Navigation";
+import Header from "../components/Header";
+import { Link } from "react-router-dom";
 
-
-
-
-
-
-export default function HomePage() {
-
+export default function HomePage(props) {
+  const { toggle, toggleHandler } = props;
   return (
     <>
       <div className="container-none bg-darkBlue-100 md:bg-white rounded-30 md:rounded-0 shadow-md md:shadow-none">
-        <div className="overlay hidden rounded-30 md:hidden absolute bg-black opacity-50 z-10 inset-0"></div>
+        <div
+          className={`${
+            toggle ? "hidden" : "block"
+          } overlay rounded-30 md:hidden absolute bg-black opacity-50 z-10 inset-0`}
+        ></div>
 
         <div className="relative min-h-screen mx-4 md:mx-0 md:flex bg-white rounded-30 md:rounded-none shadow-md md:shadow-none">
           {/* -- bottom arc -- */}
@@ -22,18 +21,18 @@ export default function HomePage() {
           {/* -- absolute container -- */}
           <div className="hidden md:block absolute top-0 right-4 bottom-6 left-28 rounded-30 shadow-md"></div>
 
-          <Navigation></Navigation>
+          <Navigation toggleHandler={toggleHandler}></Navigation>
 
           <div className="flex-1 p-4 md:p-8 h-inherit max-h-184 md:max-h-232 overflow-y-scroll lg:p-10 text-sm font-bold ">
             <Header
               header={{
                 greeting_sec: true,
                 greeting_mid_txt: true,
-                greeting_mid_cont: 'Create Portfolio for your ideas',
+                greeting_mid_cont: "Create Portfolio for your ideas",
                 profile_sec: true,
                 action_btn: true,
-                action_text: 'Upgrade Plan',
-                action: '/upgrade',
+                action_text: "Upgrade Plan",
+                action: "/upgrade",
               }}
             ></Header>
 
@@ -409,7 +408,7 @@ export default function HomePage() {
                         Innovators
                       </span>
                       <div
-                        style={{ display: 'inline' }}
+                        style={{ display: "inline" }}
                         className=" px-1 md:px-2 flex -space-x-2 overflow-hidden"
                       >
                         <img
@@ -428,7 +427,7 @@ export default function HomePage() {
                           alt=""
                         />
                         <span className="inline-block h-8 w-8 md:h-6 md:w-6 rounded-full ring-2 ring-white text-white bg-gray-400 text-xxs pt-1">
-                          {' '}
+                          {" "}
                           +10
                         </span>
                       </div>
@@ -442,7 +441,7 @@ export default function HomePage() {
                         Businesses
                       </span>
                       <div
-                        style={{ display: 'inline' }}
+                        style={{ display: "inline" }}
                         className=" px-1 md:px-2 flex -space-x-2 overflow-hidden"
                       >
                         <img
@@ -461,7 +460,7 @@ export default function HomePage() {
                           alt=""
                         />
                         <span className="inline-block h-8 w-8 md:h-6 md:w-6 rounded-full ring-2 ring-white text-white bg-gray-400 text-xxs pt-1">
-                          {' '}
+                          {" "}
                           +10
                         </span>
                       </div>

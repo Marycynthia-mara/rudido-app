@@ -1,19 +1,20 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { isEmpty } from '../utils';
-import { loginUser } from '../actions';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { isEmpty } from "../utils";
+import { loginUser } from "../actions";
+import GoogleLoginBtn from '../components/GoogleLoginBtn';
 
 export default function LoginPage({ history }) {
   // const history = useHistory();
   const [user, setUser] = useState({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
     rem: true,
   });
 
   const dispatch = useDispatch();
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState("");
   let { user: userData } = useSelector((state) => state);
 
   const handleChange = (e) => {
@@ -85,23 +86,7 @@ export default function LoginPage({ history }) {
                 Welcome Back
               </p>
 
-              <a
-                href="{{ url('auth/google') }}"
-                className="rounded-30 block text-white py-2 px-4 mb-8 transition duration-200 bg-google-100 hover:bg-darkBlue-100 text-center"
-              >
-                <svg
-                  className="h-6 w-6 inline"
-                  fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 30 30"
-                  width="30px"
-                  height="30px"
-                >
-                  <path d="M 15.003906 3 C 8.3749062 3 3 8.373 3 15 C 3 21.627 8.3749062 27 15.003906 27 C 25.013906 27 27.269078 17.707 26.330078 13 L 25 13 L 22.732422 13 L 15 13 L 15 17 L 22.738281 17 C 21.848702 20.448251 18.725955 23 15 23 C 10.582 23 7 19.418 7 15 C 7 10.582 10.582 7 15 7 C 17.009 7 18.839141 7.74575 20.244141 8.96875 L 23.085938 6.1289062 C 20.951937 4.1849063 18.116906 3 15.003906 3 z" />
-                </svg>
-
-                <span className="inline-block pl-2">Login With Google</span>
-              </a>
+              <GoogleLoginBtn></GoogleLoginBtn>
 
               <a
                 href="{{ url('auth/facebook') }}"
@@ -122,7 +107,7 @@ export default function LoginPage({ history }) {
               </a>
 
               <p className="text-gray-600 text-center pt-2">
-                {' '}
+                {" "}
                 Didn't sign up with google or facebook account Login
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -142,25 +127,25 @@ export default function LoginPage({ history }) {
 
               <div
                 style={{
-                  color: 'red',
-                  textAlign: 'center',
-                  margin: '20px auto',
+                  color: "red",
+                  textAlign: "center",
+                  margin: "20px auto",
                 }}
               >
                 {errorMessage}
               </div>
               <div
                 style={{
-                  color: 'red',
-                  textAlign: 'center',
-                  margin: '20px auto',
+                  color: "red",
+                  textAlign: "center",
+                  margin: "20px auto",
                 }}
               >
                 {!isEmpty(userData.error) &&
                 isEmpty(userData.loading) &&
-                userData.type === 'login'
+                userData.type === "login"
                   ? userData.message
-                  : ''}
+                  : ""}
               </div>
 
               <form
@@ -169,7 +154,7 @@ export default function LoginPage({ history }) {
               >
                 <div className="flex flex-wrap">
                   <label
-                    for="email"
+                    htmlFor="email"
                     className="block text-gray-700 text-sm font-bold mb-2 sm:mb-4"
                   >
                     Email
@@ -184,14 +169,14 @@ export default function LoginPage({ history }) {
                       handleChange(e);
                     }}
                     required
-                    autocomplete="email"
+                    autoComplete="email"
                   />
                   <p className="text-red-500 text-xs italic mt-4"></p>
                 </div>
 
                 <div className="flex flex-wrap">
                   <label
-                    for="password"
+                    htmlFor="password"
                     className="block text-gray-700 text-sm font-bold mb-2 sm:mb-4"
                   >
                     Password
@@ -211,11 +196,10 @@ export default function LoginPage({ history }) {
                   <p className="text-red-500 text-xs italic mt-4"></p>
                 </div>
 
-
                 <div className="flex items-center">
                   <label
                     className="inline-flex items-center text-sm text-gray-700"
-                    for="remember"
+                    htmlFor="remember"
                   >
                     <input
                       type="checkbox"
@@ -231,10 +215,10 @@ export default function LoginPage({ history }) {
                     <span className="ml-2">Remember Me</span>
                   </label>
 
-                  <a
+                  {/* <a
                     className="text-sm text-blue-500 hover:text-blue-700 whitespace-no-wrap no-underline hover:underline ml-auto"
                     href="{{ route('password.request') }}"
-                  ></a>
+                  ></a> */}
                 </div>
 
                 <div className="flex flex-wrap pt-2">
@@ -242,16 +226,22 @@ export default function LoginPage({ history }) {
                     type="submit"
                     className="w-full transition duration-200 select-none whitespace-no-wrap py-2 px-3 rounded-lg text-base leading-normal no-underline text-gray-100 bg-darkBlue-100 hover:bg-blue-900 sm:py-2"
                   >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5 inline"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                      <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                    </svg>
-                    Login With Email
+                    {userData.loading && userData.type === "login" ? (
+                      userData.message
+                    ) : (
+                      <>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-5 w-5 inline"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                          <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                        </svg>
+                        Login With Email
+                      </>
+                    )}
                   </button>
 
                   <p className="w-full text-center text-gray-600 mt-4 mb-12 sm:text-sm sm:mb-4 sm:mt-4">
@@ -260,11 +250,10 @@ export default function LoginPage({ history }) {
                       to="/register"
                       className="text-red-500 hover:text-red-700 no-underline hover:underline"
                     >
-                      {' '}
+                      {" "}
                       Sign Up
                     </Link>
                   </p>
-
                 </div>
               </form>
             </div>

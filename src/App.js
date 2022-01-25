@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { createBrowserHistory } from 'history';
 import {
    Router,
@@ -8,6 +8,7 @@ import {
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
+import DetailsPage from "./pages/DetailsPage";
 import PlannerPage from "./pages/PlannerPage";
 import WorkspacePage from "./pages/WorkspacePage";
 import WorkspaceCreatePage from "./pages/WorkspaceCreatePage";
@@ -21,13 +22,28 @@ import UnProtectedRoute from "./pages/UnProtectedRoute";
 
 const history = createBrowserHistory();
 function App() {
+
+  const [toggle, setToggle] = useState(true);
+
+  const toggleHandler = () => {
+    if (toggle) {
+      setToggle(false);
+      // return;
+    } else {
+      setToggle(true);
+      // return;
+    }
+  }
   return (
     <Router history={history}>
       <div id="app">
           <Switch>
-            <Route path="/login" component={LoginPage} exact/>
-            <Route path="/register" component={RegisterPage} exact/>
-            <ProtectedRoute path="/dashboard" component={HomePage} exact />
+            <UnProtectedRoute path="/" component={LoginPage} exact/>
+            <UnProtectedRoute path="/login" component={LoginPage} exact/>
+            <UnProtectedRoute path="/register" component={RegisterPage} exact/>
+            {/* <Route path="/register" component={RegisterPage}></Route> */}
+            <Route path="/details" component={DetailsPage}></Route>
+            <ProtectedRoute path="/dashboard" component={HomePage} exact toggle={toggle} toggleHandler={toggleHandler} />
             <ProtectedRoute path="/planner" component={PlannerPage} exact/>
             <ProtectedRoute path="/workspace" component={WorkspacePage} exact/>
             <ProtectedRoute path="/workspace/create" component={WorkspaceCreatePage}  exact/>

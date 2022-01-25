@@ -1,0 +1,31 @@
+const data = {
+    industries: [
+        {"_id":"1","name":"agriculture"},
+        {"_id":"2","name":"ICT"},
+        {"_id":"3","name":"education & training"},
+        {"_id":"4","name":"commercial / retail"},
+        {"_id":"5","name":"manufacturing"},
+        {"_id":"6","name":"fashion"},
+        {"_id":"7","name":"health care"},
+        {"_id":"8","name":"waste management"},
+        {"_id":"9","name":"professional services"},
+        {"_id":"10","name":"media & entertainment"},
+        {"_id":"11","name":"energy & power"},
+        {"_id":"12","name":"tourism & hospitality"},
+        {"_id":"13","name":"FCMG"},
+        {"_id":"14","name":"construction"},
+        {"_id":"15","name":"consulting"},
+        {"_id":"16","name":"financial services"},
+        {"_id":"17","name":"transportation"},
+        {"_id":"18","name":"logistics"},
+        {"_id":"19","name":"oil & gas"},
+        {"_id":"20","name":"telecom"},
+        {"_id":"21","name":"handcrafting"},
+        {"_id":"22","name":"art"},
+        {"_id":"23","name":"creative writing"},
+        {"_id":"24","name":"floriculture"},
+        {"_id":"25","name":"gaming"},
+        {"_id":"26","name":"other"}
+        ],
+  };
+  export default data;
