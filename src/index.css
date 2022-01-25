@@ -873,14 +873,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 .min-h-28 {
   min-height: 7rem;
 }
+.w-full {
+  width: 100%;
+}
 .w-6 {
   width: 1.5rem;
 }
 .w-52 {
   width: 13rem;
-}
-.w-full {
-  width: 100%;
 }
 .w-4\/5 {
   width: 80%;
