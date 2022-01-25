@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+// import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { isEmpty } from "../utils";
 import { loginUser } from "../actions";
 import { default as categoryData } from "../categories.js";
@@ -32,7 +32,7 @@ export default function DetailsPage({ history }) {
 
   const dispatch = useDispatch();
   const [errorMessage, setErrorMessage] = useState("");
-  let { user: userData } = useSelector((state) => state);
+  // let { user: userData } = useSelector((state) => state);
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -57,6 +57,7 @@ export default function DetailsPage({ history }) {
 
   return (
     <div className="md:flex h-screen overflow-scroll">
+      {errorMessage ? '' : ''}
       <div className="hidden md:block absolute inset-x-4 inset-y-4 rounded-30 shadow-md"></div>
 
       <div className="md:my-4 md:ml-4 h-auto w-full md:flex">

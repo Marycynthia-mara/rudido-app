@@ -1,7 +1,7 @@
 import React from "react";
 import { useGoogleLogin } from "react-google-login";
-import { loginUser } from "../actions";
-import { useDispatch } from "react-redux";
+// import { loginUser } from "../actions";
+// import { useDispatch } from "react-redux";
 
 // refresh token
 import { refreshTokenSetup } from "../utils/refreshToken";
@@ -11,10 +11,10 @@ const clientId =
   "493592528135-ubno518j2dt3ce7j5ol87ko2s1g3cb2e.apps.googleusercontent.com";
 
 function GoogleLoginBtn({ history }) {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const onSuccess = (res) => {
-    const user = res.profileObj;
+    // const user = res.profileObj;
 
     // dispatch(loginUser(user, history));
 
