@@ -43,13 +43,15 @@ function App() {
             <UnProtectedRoute path="/register" component={RegisterPage} exact/>
             {/* <Route path="/register" component={RegisterPage}></Route> */}
             <Route path="/details" component={DetailsPage}></Route>
-            <ProtectedRoute path="/dashboard" component={HomePage} exact toggle={toggle} toggleHandler={toggleHandler} />
-            <ProtectedRoute path="/planner" component={PlannerPage} exact/>
-            <ProtectedRoute path="/workspace" component={WorkspacePage} exact/>
-            <ProtectedRoute path="/workspace/create" component={WorkspaceCreatePage}  exact/>
-            <ProtectedRoute path="/marketplace" component={MarketplacePage} exact/>
-            <ProtectedRoute path="/library" component={LibraryPage} exact/>
-            <ProtectedRoute path="/message" component={MessagePage} exact/>
+            <Route path="/dashboard" component={HomePage} exact toggle={toggle} toggleHandler={toggleHandler} />
+            <Route path="/planner" component={PlannerPage} exact/>
+            <Route path="/workspace" component={WorkspacePage} exact/>
+            <Route path="/workspace/create" component={WorkspaceCreatePage}  exact/>
+            <Route path="/marketplace" component={MarketplacePage} exact/>
+            <Route path="/library" component={LibraryPage} exact/>
+            <Route path="/message" component={MessagePage} exact/>
+
+            {/* <Route path="/" component={LoginPage} /> */}
 
           </Switch>
       </div>
