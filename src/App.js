@@ -51,8 +51,6 @@ function App() {
             <ProtectedRoute path="/library" component={LibraryPage} exact/>
             <ProtectedRoute path="/message" component={MessagePage} exact/>
 
-            <Route path="/" component={LoginPage} />
-
           </Switch>
       </div>
     </Router>
