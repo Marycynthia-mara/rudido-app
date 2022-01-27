@@ -1,9 +1,9 @@
-import React from "react";
+import React, {useCallback} from "react";
 import { useDispatch } from "react-redux";
 import { NavLink, Link } from "react-router-dom";
 import { logoutUser } from "../actions";
 
-function Navigation({ history }, props) {
+function Navigation({ history, toggle, onMenuClick }) {
   const dispatch = useDispatch();
 
   const onLogoutHandler = (e) => {
@@ -12,8 +12,15 @@ function Navigation({ history }, props) {
     dispatch(logoutUser(history));
   };
 
-  const { toggleHandler } = props;
-
+  const toggleHandler = useCallback(event => {
+    if (toggle) {
+          onMenuClick(false);
+        } else {
+          onMenuClick(true);
+        }
+  }, [toggle, onMenuClick])
+  
+ 
   return (
     <>
       {/* <!-- mobile menu bar --> */}
@@ -42,9 +49,7 @@ function Navigation({ history }, props) {
 
         {/* <!-- mobile menu button --> */}
         <button
-          onClick={() => {
-            toggleHandler();
-          }}
+          onClick={toggleHandler }
           className="mobile-menu-button p-4 focus:outline-none text-darkBlue-100 pt-2"
         >
           <svg
@@ -65,7 +70,9 @@ function Navigation({ history }, props) {
       </div>
 
       {/* <!-- sidebar --> */}
-      <div className="sidebar z-20 rounded-tl-30 rounded-bl-30 bg-darkBlue-100 text-blue-100 w-64 py-7 px-6 md:pt-12 overflow-y-scroll md:overflow-visible shadow-md md:rounded-30 absolute inset-y-0 md:ml-3 md:mb-14 md:mt-28 transform translate-hide md:relative md:translate-x-0 transition duration-200 ease-in-out"
+      <div className={`${
+            toggle ? "hidden" : "block"
+          } sidebar z-20 rounded-tl-30 rounded-bl-30 bg-darkBlue-100 text-blue-100 w-64 py-7 px-6 md:pt-12 overflow-y-scroll md:overflow-visible shadow-md md:rounded-30 absolute inset-y-0 md:ml-3 md:mb-14 md:mt-28 transform translate-hide md:relative md:translate-x-0 transition duration-200 ease-in-out`}
       
       >
         {/* <!-- logo --> */}

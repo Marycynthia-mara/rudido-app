@@ -15,7 +15,7 @@ import WorkspaceCreatePage from "./pages/WorkspaceCreatePage";
 import MarketplacePage from "./pages/MarketplacePage";
 import LibraryPage from "./pages/LibraryPage";
 import MessagePage from "./pages/MessagePage";
-// import ProtectedRoute from "./pages/ProtectedRoute";
+import ProtectedRoute from "./pages/ProtectedRoute";
 import UnProtectedRoute from "./pages/UnProtectedRoute";
 
 
@@ -25,15 +25,6 @@ function App() {
 
   const [toggle, setToggle] = useState(true);
 
-  const toggleHandler = () => {
-    if (toggle) {
-      setToggle(false);
-      // return;
-    } else {
-      setToggle(true);
-      // return;
-    }
-  }
   return (
     <Router history={history}>
       <div id="app">
@@ -43,13 +34,13 @@ function App() {
             <UnProtectedRoute path="/register" component={RegisterPage} exact/>
             {/* <Route path="/register" component={RegisterPage}></Route> */}
             <Route path="/details" component={DetailsPage}></Route>
-            <Route path="/dashboard" component={HomePage} exact toggle={toggle} toggleHandler={toggleHandler} />
-            <Route path="/planner" component={PlannerPage} exact/>
-            <Route path="/workspace" component={WorkspacePage} exact/>
-            <Route path="/workspace/create" component={WorkspaceCreatePage}  exact/>
-            <Route path="/marketplace" component={MarketplacePage} exact/>
-            <Route path="/library" component={LibraryPage} exact/>
-            <Route path="/message" component={MessagePage} exact/>
+            <ProtectedRoute path="/dashboard" component={HomePage} exact toggle={toggle} onMenuClick={setToggle} />
+            <ProtectedRoute path="/planner" component={PlannerPage} exact/>
+            <ProtectedRoute path="/workspace" component={WorkspacePage} exact/>
+            <ProtectedRoute path="/workspace/create" component={WorkspaceCreatePage}  exact/>
+            <ProtectedRoute path="/marketplace" component={MarketplacePage} exact/>
+            <ProtectedRoute path="/library" component={LibraryPage} exact/>
+            <ProtectedRoute path="/message" component={MessagePage} exact/>
 
             {/* <Route path="/" component={LoginPage} /> */}
 

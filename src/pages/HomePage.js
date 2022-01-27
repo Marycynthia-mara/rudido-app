@@ -11,7 +11,7 @@ export default function HomePage(props) {
       <div className="container-none bg-darkBlue-100 md:bg-white rounded-30 md:rounded-0 shadow-md md:shadow-none">
         <div
           className={`${
-            toggle ? "hidden" : "block"
+            toggle ? "block" : "hidden"
           } overlay rounded-30 md:hidden absolute bg-black opacity-50 z-10 inset-0`}
         ></div>
 
@@ -21,7 +21,7 @@ export default function HomePage(props) {
           {/* -- absolute container -- */}
           <div className="hidden md:block absolute top-0 right-4 bottom-6 left-28 rounded-30 shadow-md"></div>
 
-          <Navigation toggleHandler={toggleHandler}></Navigation>
+          <Navigation toggle={toggle} toggleHandler={toggleHandler}></Navigation>
 
           <div className="flex-1 p-4 md:p-8 h-inherit max-h-184 md:max-h-232 overflow-y-scroll lg:p-10 text-sm font-bold ">
             <Header
