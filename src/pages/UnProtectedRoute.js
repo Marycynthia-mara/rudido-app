@@ -15,7 +15,7 @@ export default function UnProtectedRoute({
       {...restOfProps}
       render={(props) =>
         isAuthenticated ? (
-          <Redirect to="/dashboard" />
+          <Redirect to="/planner" />
         ) : (
           <Component {...props} />
         )
